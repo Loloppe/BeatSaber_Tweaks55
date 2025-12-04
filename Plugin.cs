@@ -52,6 +52,12 @@ namespace Tweaks55 {
 			return null;
 		}
 
+		internal static Exception PatchFailed(MethodBase method, Exception ex) {
+			if(method != null && ex != null)
+				Plugin.Log.Warn(string.Format("Patching {0} {1} failed: {2}", method.ReflectedType, method.Name, ex));
+			return null;
+		}
+
 		[OnEnable]
 		public void OnEnable() {
 			enabled = true;
